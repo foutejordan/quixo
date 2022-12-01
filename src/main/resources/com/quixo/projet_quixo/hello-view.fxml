@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quixo.projet_quixo.HelloController">
+<children>
+    <FlowPane layoutX="188.0" layoutY="115.0" prefHeight="225.0" prefWidth="225.0" stylesheets="@style.css">
+        <children>
+            <Button fx:id="button1" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="1" />
+            <Button fx:id="button2" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="2" />
+            <Button fx:id="button3" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="3" />
+            <Button fx:id="button6" layoutX="85.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="6" />
+            <Button fx:id="button7" layoutX="160.0" layoutY="85.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="7" />
+            <Button fx:id="button8" layoutX="10.0" layoutY="160.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="8" />
+            <Button fx:id="button11" layoutX="488.0" layoutY="115.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="11" />
+            <Button fx:id="button12" layoutX="413.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="12" />
+            <Button fx:id="button13" layoutX="488.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="13" />
+            <Button fx:id="button16" layoutX="413.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="16" />
+            <Button fx:id="button17" layoutX="413.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="17" />
+            <Button fx:id="button18" layoutX="413.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="18" />
+            <Button fx:id="button21" layoutX="413.0" layoutY="340.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="21" />
+            <Button fx:id="button22" layoutX="488.0" layoutY="339.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="22" />
+            <Button fx:id="button23" layoutX="413.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="23" />
+        </children>
+    </FlowPane>
+    <Text fx:id="winnerText" layoutX="268.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="QUIXO" textAlignment="CENTER" wrappingWidth="237.9443359375">
+        <font>
+            <Font size="39.0" />
+        </font>
+    </Text>
+    <Button layoutX="361.0" layoutY="511.0" mnemonicParsing="false" text="Restart" />
+      <Button fx:id="button4" layoutX="413.0" layoutY="115.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="4" />
+      <Button fx:id="button5" layoutX="488.0" layoutY="115.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="5" />
+      <Button fx:id="button9" layoutX="413.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="9" />
+      <Button fx:id="button10" layoutX="488.0" layoutY="190.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="10" />
+
+      <Button fx:id="button14" layoutX="413.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="14" />
+      <Button fx:id="button15" layoutX="488.0" layoutY="265.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="15" />
+      <Button fx:id="button19" layoutX="413.0" layoutY="340.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="19" />
+      <Button fx:id="button20" layoutX="488.0" layoutY="340.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="20" />
+      <Button fx:id="button24" layoutX="413.0" layoutY="415.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="24" />
+      <Button fx:id="button25" layoutX="488.0" layoutY="415.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" text="25" />
+
+
+
+
+</children>
+</AnchorPane>
