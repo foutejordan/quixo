@@ -1,9 +1,14 @@
 package com.quixo.projet_quixo;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -16,62 +21,34 @@ public class HelloController implements Initializable {
 
     //AdversarialSearchTicTacToe ticTacToeAI = new AdversarialSearchTicTacToe();
 
-    @FXML
-    private Button button1;
-    @FXML
-    private Button button2;
-    @FXML
-    private Button button3;
-    @FXML
-    private Button button4;
-    @FXML
-    private Button button5;
-    @FXML
-    private Button button6;
-    @FXML
-    private Button button7;
-    @FXML
-    private Button button8;
-    @FXML
-    private Button button9;
-    @FXML
-    private Button button10;
-    @FXML
-    private Button button11;
-    @FXML
-    private Button button12;
-    @FXML
-    private Button button13;
-    @FXML
-    private Button button14;
-    @FXML
-    private Button button15;
-    @FXML
-    private Button button16;
-    @FXML
-    private Button button17;
-    @FXML
-    private Button button18;
-    @FXML
-    private Button button19;
-    @FXML
-    private Button button20;
-    @FXML
-    private Button button21;
-    @FXML
-    private Button button22;
-    @FXML
-    private Button button23;
-    @FXML
-    private Button button24;
-    @FXML
-    private Button button25;
-    @FXML
-    private Text winnerText;
+
 
     ArrayList<Button> pions;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    private Button[] bords = new Button[25];
+    public void onClick(Event event) {
+        Button button = (Button) event.getSource();
+        button.setText("F");
+        int idClicked = Integer.parseInt(button.getId().split("_")[1]);
+
+    }
+
+    public void onPress(MouseEvent mouseEvent) {
+        Node clickedNode = mouseEvent.getPickResult().getIntersectedNode();
+        int x = GridPane.getColumnIndex(clickedNode) != null ? GridPane.getColumnIndex(clickedNode) : 0;
+        int y = GridPane.getRowIndex(clickedNode) != null ? GridPane.getRowIndex(clickedNode) : 0;
+
+        System.out.println(x);
+        System.out.println(y);
+    }
+
+    public void onNouvelle(ActionEvent actionEvent) {
+    }
+
+    public void onQuitter(ActionEvent actionEvent) {
     }
 }
