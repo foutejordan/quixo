@@ -67,16 +67,23 @@ public class Plateau {
     public void placePion(Pion arrivalPoint){
 
         if(canPoseDuPion(arrivalPoint.getPosition().x, arrivalPoint.getPosition().y)){
+            int etat = plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].etat;
             plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y] = chosen;
             if(isMovingLine(arrivalPoint)){
                 if(chosen.getPosition().y < arrivalPoint.getPosition().y){
                     // Deplacement a droite
                     for (int j = chosen.getPosition().y + 1; j <= arrivalPoint.getPosition().y; j++) {
-                        plateau[chosen.getPosition().x][j] = plateau[chosen.getPosition().x][j-1];
+                        plateau[chosen.getPosition().x][j].etat = plateau[chosen.getPosition().x][j-1].etat;
+                        if(j == arrivalPoint.getPosition().y){
+                            plateau[chosen.getPosition().x][j-1].etat = etat;
+                        }
                     }
                 }else{
                     for (int j = chosen.getPosition().y - 1; j < arrivalPoint.getPosition().y; j--) {
-                        plateau[chosen.getPosition().x][j] = plateau[chosen.getPosition().x][j+1];
+                        plateau[chosen.getPosition().x][j].etat = plateau[chosen.getPosition().x][j+1].etat;
+                        if(j == arrivalPoint.getPosition().y){
+                            plateau[chosen.getPosition().x][j+1].etat = etat;
+                        }
                     }
                 }
 
@@ -84,11 +91,18 @@ public class Plateau {
                 if(chosen.getPosition().x < arrivalPoint.getPosition().x){
                     // Deplacement en bas
                     for (int i = chosen.getPosition().x + 1; i <= arrivalPoint.getPosition().x; i++) {
-                        plateau[i][chosen.getPosition().y] = plateau[i-1][chosen.getPosition().y];
+                        plateau[i][chosen.getPosition().y].etat = plateau[i-1][chosen.getPosition().y].etat;
+                        //
+                        if(i == arrivalPoint.getPosition().x){
+                            plateau[i-1][chosen.getPosition().y].etat = etat;
+                        }
                     }
                 }else{
-                    for (int i = chosen.getPosition().x - 1; i < arrivalPoint.getPosition().x; i--) {
-                        plateau[i][chosen.getPosition().y] = plateau[i+1][chosen.getPosition().y];
+                    for (int i = chosen.getPosition().x - 1; i <= arrivalPoint.getPosition().x; i--) {
+                        plateau[i][chosen.getPosition().y].etat = plateau[i+1][chosen.getPosition().y].etat;
+                        if(i == arrivalPoint.getPosition().x){
+                            plateau[i+1][chosen.getPosition().y].etat = etat;
+                        }
                     }
                 }
             }
