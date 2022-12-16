@@ -9,23 +9,37 @@ public class Plateau {
     public Pion pionX = new Pion(1, new Position(-1,-1));
     public Pion pionO = new Pion(-1, new Position(-1,-1));
 
-    Player joueur1 = new Player("jordan", pionX);
-    Player joueur2 = new Player("Kevin", pionO);
-    Player currentPlayer = joueur1;
+    public Player joueur1 = new Player("jordan", pionX);
+    public Player joueur2 = new Player("Kevin", pionO);
+    public Player currentPlayer = new Player("", pionVide);
 
     Pion chosen = pionVide;
 
-    private Pion[][] plateau = new Pion[5][5];
 
-    private int etat_du_jeu = 0; // true means that it's 2's turn to play
+    public void setPlateau(Pion[][] plateau) {
+        this.plateau = plateau;
+    }
+
+    public Pion[][] plateau = new Pion[5][5];
+
+    private int tourDuJoeur = 1; // true means that it's 2's turn to play
 
     public Plateau() {
 
-        for (int x=0; x<5; ++x)
-            for (int y=0; y<5; ++y) {
+        for (int x=0; x<5; x++){
+            for (int y=0; y<5; y++) {
                 plateau[x][y] = pionVide;
             }
+        }
 
+        plateau[0][4].etat = 2;
+
+        System.out.println("displaying at the...");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.println(plateau[i][j].getEtat());
+            }
+        }
     }
 
     public boolean isChooseAllowed(int etat, int x, int y) {
@@ -33,21 +47,24 @@ public class Plateau {
         if(pionCentre(pos)) {
             return false;
         }
-        if (currentPlayer.getMonTourdeJouer()){
+            //System.out.println(currentPlayer.getPion().etat);
             if (etat == currentPlayer.getPion().etat || etat == pionVide.etat) {
                 return true;
             }else{
+                System.out.println("Ce n'est pas a vous de jouer");
                 return false;
             }
-        }else{
+
+    }
+    public boolean choosePion(int etat, int x, int y) {
+        if (isChooseAllowed(etat,x,y)) {
+            System.out.println(etat);
+            chosen.setPosition(new Position(x,y));
+            return true;
+        } else{
+            System.out.println("Vous ne pouvez pas deplacer cette piece");
             return false;
         }
-    }
-    public void choosePion(int etat, int x, int y) {
-        if (isChooseAllowed(etat,x,y)) {
-            chosen.setPosition(new Position(x,y));
-        } else
-            throw new IllegalArgumentException("This piece is not choosable");
     }
 
     /** Cancels the choice of piece to move */
@@ -57,27 +74,41 @@ public class Plateau {
 
     public boolean canPoseDuPion(int x, int y){
         if (pionCentre(new Position(x,y)))
+        {
+            System.out.println("Vous ne pouvez pas deposer cette piece ici");
             return false;
-        return (x == chosen.getPosition().x && y == chosen.getPosition().y) ||
+        }
+        // x=0, y=4
+        // chosen.x == 0 chosen.y = 0
+        System.out.println(x);
+        return (x == chosen.getPosition().x && y == 4) ||
                 (x == 4 && y == chosen.getPosition().y) ||
                 (x == chosen.getPosition().x && y == 0) ||
                 (x == 0 && y == chosen.getPosition().y);
     }
 
-    public void placePion(Pion arrivalPoint){
+    public boolean placePion(Pion arrivalPoint){
 
         if(canPoseDuPion(arrivalPoint.getPosition().x, arrivalPoint.getPosition().y)){
-            int etat = plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].etat;
-            plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y] = chosen;
+
+            int etat = this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].etat;
+            //this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].etat = chosen.etat;
+
+
             if(isMovingLine(arrivalPoint)){
+                System.out.println("moving line");
+
                 if(chosen.getPosition().y < arrivalPoint.getPosition().y){
                     // Deplacement a droite
-                    for (int j = chosen.getPosition().y + 1; j <= arrivalPoint.getPosition().y; j++) {
-                        plateau[chosen.getPosition().x][j].etat = plateau[chosen.getPosition().x][j-1].etat;
-                        if(j == arrivalPoint.getPosition().y){
-                            plateau[chosen.getPosition().x][j-1].etat = etat;
-                        }
+                    System.out.println(chosen.getPosition().x);
+                    for (int j = chosen.getPosition().y + 1; j < arrivalPoint.getPosition().y; j++) {
+                        this.plateau[chosen.getPosition().x][j-1].etat = this.plateau[chosen.getPosition().x][j].etat;
+                        /*if(j == arrivalPoint.getPosition().y){
+                            this.plateau[chosen.getPosition().x][j-1].etat = etat;
+                        }*/
                     }
+                    this.plateau[chosen.getPosition().x][arrivalPoint.getPosition().y-1].etat = etat;
+
                 }else{
                     for (int j = chosen.getPosition().y - 1; j < arrivalPoint.getPosition().y; j--) {
                         plateau[chosen.getPosition().x][j].etat = plateau[chosen.getPosition().x][j+1].etat;
@@ -86,8 +117,14 @@ public class Plateau {
                         }
                     }
                 }
-
+                System.out.println("displaying after...");
+                for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        System.out.println(plateau[i][j].getEtat());
+                    }
+                }
             }else {
+                System.out.println("moving column");
                 if(chosen.getPosition().x < arrivalPoint.getPosition().x){
                     // Deplacement en bas
                     for (int i = chosen.getPosition().x + 1; i <= arrivalPoint.getPosition().x; i++) {
@@ -105,7 +142,15 @@ public class Plateau {
                         }
                     }
                 }
+                for (int i = 0; i < 5; i++) {
+                    for (int j = 0; j < 5; j++) {
+                        System.out.println(plateau[i][j].getEtat());
+                    }
+                }
             }
+            return true;
+        }else{
+            return false;
         }
 
     }
