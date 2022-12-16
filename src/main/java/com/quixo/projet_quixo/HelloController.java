@@ -27,7 +27,6 @@ public class HelloController implements Initializable {
     //AdversarialSearchTicTacToe ticTacToeAI = new AdversarialSearchTicTacToe();
 
     private Plateau plateauModel;
-    private String etat;
     private int x;
     private int y;
 
@@ -97,7 +96,7 @@ public class HelloController implements Initializable {
 
         this.isClickForChoose = true;
         plateauModel.currentPlayer = joueur1;
-        System.out.println("Au tout du joueur 1 de jouer");
+        System.out.println("Au tour du joueur 1 de jouer");
         this.tourDujoueur = 1;
         initialiseBtn();
 
@@ -161,11 +160,13 @@ public class HelloController implements Initializable {
         Node clickedNode = mouseEvent.getPickResult().getIntersectedNode();
         y = GridPane.getColumnIndex(clickedNode) != null ? GridPane.getColumnIndex(clickedNode) : 0;
         x = GridPane.getRowIndex(clickedNode) != null ? GridPane.getRowIndex(clickedNode) : 0;
+        System.out.println(x);
+        System.out.println(y);
+
         Button button = (Button) mouseEvent.getSource();
-        etat = button.getText();
+        String etat = button.getText();
 
         if (isClickForChoose) {
-            System.out.println(etat);
             if (Objects.equals(etat, "")) {
                 etat = convertToString(plateauModel.currentPlayer.getPion().getEtat());
             }
@@ -181,7 +182,7 @@ public class HelloController implements Initializable {
             if (plateauModel.placePion(new Pion(convertToInt(etat), new Position(x,y)))){
                 System.out.println("place");
                 this.isClickForChoose = true;
-                //this.mettreAjourLaGrille();
+                this.mettreAjourLaGrille();
                 changePlayer();
             }else{
                 System.out.println("Veuillez reesayer");
