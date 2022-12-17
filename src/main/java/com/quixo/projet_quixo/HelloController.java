@@ -90,6 +90,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         plateauModel = new Plateau();
+        this.mettreAjourLaGrille();
 
         joueur1 = plateauModel.joueur1;
         joueur2 = plateauModel.joueur2;
@@ -135,8 +136,6 @@ public class HelloController implements Initializable {
 /*        for (int i = 0; i < 25; i++) {
             buttons[i].setText("");
         }*/
-        this.mettreAjourLaGrille();
-
     }
 
 
@@ -160,8 +159,6 @@ public class HelloController implements Initializable {
         Node clickedNode = mouseEvent.getPickResult().getIntersectedNode();
         y = GridPane.getColumnIndex(clickedNode) != null ? GridPane.getColumnIndex(clickedNode) : 0;
         x = GridPane.getRowIndex(clickedNode) != null ? GridPane.getRowIndex(clickedNode) : 0;
-        System.out.println(x);
-        System.out.println(y);
 
         Button button = (Button) mouseEvent.getSource();
         String etat = button.getText();
@@ -170,7 +167,9 @@ public class HelloController implements Initializable {
             if (Objects.equals(etat, "")) {
                 etat = convertToString(plateauModel.currentPlayer.getPion().getEtat());
             }
-
+           /* System.out.println("print in controller before choosing");
+            System.out.println(x);
+            System.out.println(y);*/
             if(plateauModel.choosePion(convertToInt(etat), x, y)){
                 //mettreAjourLaGrille();
                 this.isClickForChoose = false;
@@ -276,11 +275,11 @@ public class HelloController implements Initializable {
         if (plateauModel.currentPlayer == joueur1){
             plateauModel.currentPlayer = joueur2;
             this.tourDujoueur = 2;
-            System.out.println("Au tout du joueur 2 de jouer");
+            System.out.println("Au tour du joueur 2 de jouer");
         }else {
             plateauModel.currentPlayer = joueur1;
             this.tourDujoueur = 1;
-            System.out.println("Au tout du joueur 1 de jouer");
+            System.out.println("Au tour du joueur 1 de jouer");
         }
 
     }

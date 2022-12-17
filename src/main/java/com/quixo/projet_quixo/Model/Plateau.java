@@ -29,7 +29,7 @@ public class Plateau {
 
         for (int x=0; x<5; x++){
             for (int y=0; y<5; y++) {
-                plateau[x][y] = pionVide;
+                plateau[x][y] = new Pion(pionVide.etat, new Position(x,y));
             }
         }
 
@@ -51,10 +51,15 @@ public class Plateau {
     }
     public boolean choosePion(int etat, int x, int y) {
         if (isChooseAllowed(etat,x,y)) {
-            System.out.println(etat);
-            //chosen.setEtat(etat);
-            //chosen.setPosition(new Position(x,y));
+            System.out.println(x);
+            System.out.println(y);
+            this.plateau[x][y] = new Pion(pionVide.etat, new Position(x, y));
             chosen = new Pion(etat,new Position(x,y));
+            System.out.println("log in choose function");
+            System.out.println(chosen.getPosition().x);
+            System.out.println(chosen.getPosition().y);
+            System.out.println(chosen.etat);
+
             return true;
         } else{
             System.out.println("Vous ne pouvez pas deplacer cette piece");
@@ -73,9 +78,6 @@ public class Plateau {
             System.out.println("Vous ne pouvez pas deposer cette piece ici");
             return false;
         }
-        // x=0, y=4
-        // chosen.x == 0 chosen.y = 0
-        System.out.println(x);
         return (x == chosen.getPosition().x && y == 4) ||
                 (x == 4 && y == chosen.getPosition().y) ||
                 (x == chosen.getPosition().x && y == 0) ||
@@ -85,26 +87,31 @@ public class Plateau {
     public boolean placePion(Pion arrivalPoint){
 
         if(canPoseDuPion(arrivalPoint.getPosition().x, arrivalPoint.getPosition().y)){
-            Pion pionPlateauf = this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y];
+            //Pion pionPlateauf = this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y];
+            Pion pionPlateauf = new Pion(arrivalPoint.getEtat(), new Position(arrivalPoint.getPosition().x, arrivalPoint.getPosition().y));
+            System.out.println("print Pion Plateau final");
+            System.out.println(pionPlateauf.getPosition().x);
+            System.out.println(pionPlateauf.getPosition().y);
             Pion saveFinalPiont = new Pion(pionPlateauf.etat, new Position(pionPlateauf.getPosition().x,pionPlateauf.getPosition().y));
-            System.out.println("arival pos");
-            System.out.println(arrivalPoint.getPosition().x);
-            System.out.println(arrivalPoint.getPosition().y);
-
-            this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y] = new Pion(chosen.etat, chosen.getPosition());
-            System.out.println("displaying before...");
-            for (int i = 0; i < 5; i++) {
-                for (int j = 0; j < 5; j++) {
-                    System.out.println(plateau[i][j].getEtat());
-                }
-            }
-
+            System.out.println("print saveFinal Pion");
+            System.out.println(saveFinalPiont.getPosition().x);
+            System.out.println(saveFinalPiont.getPosition().y);
+            this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y] = new Pion(chosen.etat, arrivalPoint.getPosition());
+            System.out.println("print arrival pos after replacing");
+            System.out.println(this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].getPosition().x);
+            System.out.println(this.plateau[arrivalPoint.getPosition().x][arrivalPoint.getPosition().y].getPosition().y);
             if(isMovingLine(arrivalPoint)){
                 System.out.println("moving line");
-
+ /* System.out.println("moving line vers la droite");
+                    System.out.println("chosen coord");
+                    System.out.println(chosen.getPosition().x);
+                    System.out.println(chosen.getPosition().y);
+                    System.out.println("arrival coord");
+                    System.out.println(arrivalPoint.getPosition().x);
+                    System.out.println(arrivalPoint.getPosition().y);*/
                 if(chosen.getPosition().y < arrivalPoint.getPosition().y){
                     // Deplacement a droite
-                    System.out.println(chosen.getPosition().x);
+
                     for (int j = chosen.getPosition().y + 1; j <= arrivalPoint.getPosition().y; j++) {
                         this.plateau[chosen.getPosition().x][j-1] = this.plateau[chosen.getPosition().x][j];
                         if(j == arrivalPoint.getPosition().y){
@@ -114,18 +121,27 @@ public class Plateau {
                     this.plateau[chosen.getPosition().x][arrivalPoint.getPosition().y-1] = saveFinalPiont;
 
                 }else{
+                    // erreur a ce niveau, Index -1 out of bounds for length 5
+
                     for (int j = chosen.getPosition().y - 1; j <= arrivalPoint.getPosition().y; j--) {
-                        plateau[chosen.getPosition().x][j] = plateau[chosen.getPosition().x][j+1];
+                        this.plateau[chosen.getPosition().x][j+1] = this.plateau[chosen.getPosition().x][j];
                         if(j == arrivalPoint.getPosition().y){
-                            plateau[chosen.getPosition().x][j+1] = saveFinalPiont;
+                            this.plateau[chosen.getPosition().x][j+1] = saveFinalPiont;
                         }
                     }
                 }
 
             }else {
-                System.out.println("moving column");
+                /*System.out.println("moving column");
+                System.out.println("chosen coord");
+                System.out.println(chosen.getPosition().x);
+                System.out.println(chosen.getPosition().y);
+                System.out.println("arrival coord");
+                System.out.println(arrivalPoint.getPosition().x);
+                System.out.println(arrivalPoint.getPosition().y);*/
                 if(chosen.getPosition().x < arrivalPoint.getPosition().x){
                     // Deplacement en bas
+                    System.out.println("moving column vers le bas");
                     for (int i = chosen.getPosition().x + 1; i <= arrivalPoint.getPosition().x; i++) {
                         plateau[i-1][chosen.getPosition().y] = plateau[i][chosen.getPosition().y];
                         //
@@ -135,15 +151,10 @@ public class Plateau {
                     }
                 }else{
                     for (int i = chosen.getPosition().x - 1; i <= arrivalPoint.getPosition().x; i--) {
-                        plateau[i][chosen.getPosition().y] = plateau[i+1][chosen.getPosition().y];
+                        plateau[i+1][chosen.getPosition().y] = plateau[i][chosen.getPosition().y];
                         if(i == arrivalPoint.getPosition().x){
                             plateau[i+1][chosen.getPosition().y] = saveFinalPiont;
                         }
-                    }
-                }
-                for (int i = 0; i < 5; i++) {
-                    for (int j = 0; j < 5; j++) {
-                        System.out.println(plateau[i][j].getEtat());
                     }
                 }
             }

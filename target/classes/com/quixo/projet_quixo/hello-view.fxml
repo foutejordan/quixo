@@ -4,55 +4,127 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="660.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quixo.projet_quixo.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quixo.projet_quixo.HelloController">
 
-    <GridPane layoutX="200.0" layoutY="200.0" maxHeight="50.0" maxWidth="50.0" prefHeight="50.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+    <GridPane layoutX="200.0" layoutY="130.0" maxHeight="50.0" maxWidth="50.0" prefHeight="20.0" prefWidth="50.0" BorderPane.alignment="CENTER">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="105.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="105.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="105.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="105.0" prefWidth="105.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="105.0" prefWidth="105.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="50.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="105.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="105.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="105.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="105.0" prefHeight="105.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="105.0" prefHeight="105.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
-            <Button fx:id="btn00" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btn01" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btn02" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btn03" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btn04" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btn10" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btn11" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btn12" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btn13" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btn14" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Button fx:id="btn20" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="btn21" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="btn22" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Button fx:id="btn00" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn01" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn02" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn03" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn04" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn10" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn11" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn12" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn13" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn14" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn20" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn21" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn22" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
             <Button fx:id="btn23" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
             <font>
-               <Font size="22.0" />
+               <Font size="54.0" />
             </font></Button>
-            <Button fx:id="btn24" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Button fx:id="btn30" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="btn31" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="btn32" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="btn33" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="btn34" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Button fx:id="btn40" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="btn41" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="btn42" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="btn43" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-            <Button fx:id="btn44" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+            <Button fx:id="btn24" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn30" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn31" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn32" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn33" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn34" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn40" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn41" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn42" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn43" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
+            <Button fx:id="btn44" onMousePressed="#onPress" prefHeight="100.0" prefWidth="100.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+            <font>
+               <Font size="54.0" />
+            </font></Button>
         </children>
     </GridPane>
-   <Label layoutX="190.0" layoutY="70.0" text="QUIXO GAME" textFill="#ab441c">
+   <Label layoutX="330.0" layoutY="50.0" text="QUIXO GAME" textFill="#ab441c">
       <font>
          <Font name="System Bold" size="37.0" />
       </font>
